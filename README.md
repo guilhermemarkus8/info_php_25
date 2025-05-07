@@ -8,3 +8,7 @@ file open folder : selecionar tudo e apagar
 - /var/www/html;info_php_25 e da Ok
 terminal novo terminal 
 verifica se esta em : /var/www/html/info_php_25
+
+git add.
+git commit -m
+git push
