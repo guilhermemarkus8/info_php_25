@@ -121,7 +121,6 @@ echo $hoje;
 echo '<br>';
 echo '<br>';
 
-const DATA_NASCIMENTO = "01/01/1950";
 
 
 //!= (diferente);
@@ -173,9 +172,7 @@ else{
    echo " O aluno foi reprovado e sua média foi de: $mediaArit";
 }
 
-$numero = $i;
-$resto = $numero % 2;
-$par = $resto == 0;
+echo '<br>';
 
 //for e while exercicios
 
@@ -194,8 +191,7 @@ for ($i = 2; $contadorPares < 20; $i++) {
 
 
 $contadorPares = 0; // Inicializa o contador de números pares
-$i = 2; // Começa com o primeiro número par
-
+$i = 2; 
 while ($contadorPares < 20) {
     $numero = $i;
     $resto = $numero % 2;
@@ -209,30 +205,69 @@ while ($contadorPares < 20) {
     $i++; // Incrementa $i para o próximo número
 }
 
+
+echo '<br>';
+
 // numeros primos os primeiros 5 exibilos
 
 // 2 3 5 7 11 
+
+$primos = [];    
 $contPrimos = 0;
 
-
 for ($numeroAvaliado = 3; $contPrimos < 5; $numeroAvaliado++) {
-    $penultimoNumero = $numeroAvaliado - 1;
+    $penultimonumero = $numeroAvaliado - 1;
+    $ehPrimo = true;
 
-    for($divisor = 2; $divisor <= $penultimoNumero; $divisor++) {
-
-        $resto = $numero % 2;
+    for ($divisor = 2; $divisor < $penultimonumero; $divisor++) {
+        $resto = $numeroAvaliado % $divisor;
         $divisaoExata = $resto == 0;
 
-        if ($divisaoExata && $divisor < $penultimoNumero) {
-
+        if ($divisaoExata && $divisor < $penultimonumero) {
+            $ehPrimo = false;
+            break; 
         }
-    }   
+    }
+
+    if ($ehPrimo) {
+        $primos[] = $numeroAvaliado;
+        $contPrimos++;
+    }
+}
+
+
+
+
+echo '<br>';
+
+//$primos = []; // array/ vetor vazio
+
+//$primos = [2, 3, 5, 7, 11]; // array com os primeiros 5 numeros primos
+
+for ($i=0; $i < 5; $i++) {
+
+    $primo = $primos[$i] ; 
+
+    echo "primo: $primo" . "<br>";
+
+}
+
+
+
+
+
+
+
+
+//contagem regressiva de 10-0 
+
+$numero = 10;
+
+while ($numero >= 0) {
+    
+    echo $numero . "<br>";
+    $numero = $numero - 1; // diminui 1 a cada volta
 
 
 }
     
-//implementar logica
-
-//contagem regressiva de 10-0 
-
-
