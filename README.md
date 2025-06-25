@@ -12,3 +12,7 @@ verifica se esta em : /var/www/html/info_php_25
 git add.
 git commit -m " 
 git push
+
+laços de repetição = for / while
+condicões = if/ if else
+

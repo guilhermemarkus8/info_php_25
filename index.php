@@ -271,3 +271,81 @@ while ($numero >= 0) {
 
 }
     
+echo "<br>";
+
+$palavra = "radar";
+$tamanho = strlen($palavra) - 1; // 3 - 1 == 2
+
+$a=0;
+$ehPalindromo = true;
+
+for ($i = $tamanho; $i >= 0; $i--) {
+    $letra_1 = $palavra[$a];
+    $letra_2 = $palavra[$i];
+    $letrasIguais =  $letra_1 == $letra_2; // r == r, a == a, d == d
+
+    if (!$letrasIguais) {
+        $ehPalindromo = false;
+        break;
+    }
+
+    $a++;
+}
+
+if ($ehPalindromo ) {
+    echo "A palavra $palavra é um palíndromo.";
+}
+else {
+  echo "A palavra $palavra NÃO é palíndromo.";
+}
+
+echo "<br>";
+ //Procurar uma palavra no meio da frase e informar se encontrou a mesma.
+
+
+// c u r s o 
+// 0 1 2 3 4
+
+// ...existing code...
+
+$palavraProcurada = "curso";
+$frase = "curso Escola infoserv de PHP."; // curso
+
+$tamanho = strlen($frase) - 1;
+$tamanhoPalavra = strlen($palavraProcurada) - 1;
+
+$palavraEncontrada = false;
+
+// percorre a frase toda
+for ($i = 0; $i <= $tamanho - $tamanhoPalavra; $i++) {
+    $letrasIguais = true;
+
+    // percorre toda a palavra que queremos encontrar
+    for ($j = 0; $j <= $tamanhoPalavra; $j++) {
+        $indiceAtualDaFrase = $i + $j;
+        $letraAtualDaFrase = $frase[$indiceAtualDaFrase];
+        $letraAtualDaPalavra = $palavraProcurada[$j];
+
+        if ($letraAtualDaFrase != $letraAtualDaPalavra) {
+            $letrasIguais = false;
+            break;
+        }
+    }
+
+    if ($letrasIguais) {
+        $palavraEncontrada = true;
+        break;
+    }
+}
+
+if ($palavraEncontrada) {
+    echo "encontrou a palavra procurada";
+} else {
+    echo "não encontrou a palavra procurada";
+}
+
+
+strlen();
+count();
+substr();
+strpos();
