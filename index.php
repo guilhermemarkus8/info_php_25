@@ -349,3 +349,4 @@ strlen();
 count();
 substr();
 strpos();
+da
