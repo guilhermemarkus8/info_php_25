@@ -344,9 +344,105 @@ if ($palavraEncontrada) {
     echo "não encontrou a palavra procurada";
 }
 
+echo "<br>";
 
+/*
 strlen();
 count();
 substr();
 strpos();
-da
+*/
+
+
+
+/**
+ * Calendario: usuario vai informar uma data, validar essa data,
+ * caso for uma data invalida, retornar a proxima data correta.
+ * Ex.: 29/02/2025 => 01/03/2025
+ * Ex.: 31/04/2025 => 01/05/2025
+ * 
+ * Funcao PHP: explode;
+ */
+
+ $data = "29/02/2025";
+ $dataArray = explode("/", $data);
+
+ $dia = $dataArray[0];
+ $mes = $dataArray[1];
+ $ano = $dataArray[2];
+
+
+$data = "29/02/2025";
+$dataArray = explode("/", $data);
+
+$dia = (int)$dataArray[0];
+$mes = (int)$dataArray[1];
+$ano = (int)$dataArray[2];
+
+
+if (checkdate($mes, $dia, $ano)) {
+    echo "Data válida: $data";
+} else {
+    
+    $novaData = mktime(0, 0, 0, $mes, $dia, $ano);
+    $novaDataCorrigida = date("d/m/Y", strtotime("+1 day", $novaData));
+    echo "A Data é inválida. Próxima data válida: $novaDataCorrigida";
+}
+
+echo "<br>";
+
+
+ /**
+  * Ordenar os arrays abaixo em ordem decrescente (maior para menor):
+  * $alfa = ["A", "B", "C", "D", "E"];
+  * $numeros = [10, 20, 30, 40, 50];
+  * Saida esperada: E, D, C, B, A
+  * 50, 40, 30, 20, 10
+
+  * Utilizar somente laço FOR. Não utilizar funcoes prontas do PHP para ordenacao.
+  */
+
+
+
+//adicionar novo parametro na funcao de ordenar array
+//sendo ele ordem crescente ou decrescente
+//se chamar a funcao com asc sera crescente
+//se chamar a funcao com desc sera decrescente    
+//maior para menor
+
+
+
+
+function ordenarArray(&$array, $ordem = 'desc') {
+    $tam = count($array);
+    for ($i = 0; $i < $tam - 1; $i++) {
+
+        for ($j = 0; $j < $tam - 1 - $i; $j++) {
+            
+            if (
+                ($ordem = 'asc' && $array[$j] > $array[$j + 1]) ||
+                ($ordem = 'desc' && $array[$j] < $array[$j + 1])
+            ) {
+                $aux = $array[$j];
+                $array[$j] = $array[$j + 1];
+                $array[$j + 1] = $aux;
+            }
+        }
+    }
+}
+
+$alfa = ["A", "B", "C", "D", "E"];
+$numeros = [10, 20, 30, 40, 50];
+
+
+ordenarArray($alfa, 'desc'); // decrescente
+ordenarArray($numeros, 'asc'); // crescente
+
+
+echo 'Alfa: ';
+foreach ($alfa as $alfa) echo $alfa . ' ';
+echo '<br>';
+
+echo 'Numeros: ';
+foreach ($numeros as $num) echo $num . ' ';
+echo '<br>';
