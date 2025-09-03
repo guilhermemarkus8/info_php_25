@@ -58,6 +58,31 @@ class Usuario {
         }
     }
 
+    public function obterPermissoesUsuario(){
+        $sql = "select
+                    u.id,
+                    p.perfil as perfil
+                FROM 
+                    usuarios u
+                join perfis p ON
+                    u.id = p.id_usuario
+                WHERE id=$id";
+                
+            $usuarioPerfil= $this->modelUsuario->ReadOne($sql);
+                
+
+
+    }
+
+
+
+
+
+
+
+
+
+
     public function logar($login, $senha) {
         $this->login = $login;
         $this->senha = $senha;
@@ -93,5 +118,54 @@ class Usuario {
 }
 
 $usuario = new Usuario($model);
-$usuario->listarUsuarios();
-$usuario->updateUsuarios();
+$usuario->listarUsuarios(1);
+$usuario->updateUsuarios(1);
+$usuario->buscarUsuarios(1);
+$usuario->excluirUsuarios(10);
+
+
+
+admin
+diretor
+gerente
+supervisor
+encarregado
+colaborador
+convidado
+
+
+("create")
+("read") 
+("update")
+("delete")
+
+("create"), ("read")
+("create"), ("update") 
+("create"), ("delete")
+(
+("create"), ("read"), ("update")
+("create"), ("read"), ("delete")
+("create"), ("read"), ("update, ("delete")
+
+UPDATE permissoes 
+set admin='permitido'
+
+UPDATE permissoes 
+set diretor='permitido' Where id < 4;
+
+UPDATE permissoes 
+set gerente='permitido' Where id < 3;
+
+SELECT 
+p.id_usuario
+p.perfil 
+CASE
+WHEN p.perfil = 'admin' then per.admin
+WHEN p.perfil = 'diretor' then per.diretor
+else 'negado'
+end as permissoes per
+FROM
+perfis p
+
+SELECT * FROM 
+(select  
